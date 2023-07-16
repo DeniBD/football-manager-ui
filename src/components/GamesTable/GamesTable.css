@@ -1,0 +1,46 @@
+.PlayersTable {
+    width: 90%;
+    margin: 30px;
+}
+
+.PlayersTable th {
+    text-align: center;
+}
+
+.PlayersTable td {
+    text-align: center;
+}
+
+.PlayersTable .table-row-even {
+    background-color: #303030;
+}
+
+.PlayersTable .table-row-odd {
+    background-color: #424242;
+}
+
+.PlayersTable .actions-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PlayersTable .actions-cell .edit-icon {
+    color: cornflowerblue;
+    margin-right: 35px;
+    transition: color 0.3s;
+}
+
+.PlayersTable .actions-cell .edit-icon:hover {
+    color: white;
+}
+
+.PlayersTable .actions-cell .delete-icon {
+    color: red;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.PlayersTable .actions-cell .delete-icon:hover {
+    color: white;
+}

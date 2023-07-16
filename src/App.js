@@ -2,7 +2,7 @@ import React from 'react';
 import {Routes, Route, Router} from 'react-router-dom';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './layout/Navbar';
+import Navbar from './components/layout/Navbar';
 import PlayersPage from './pages/PlayersPage';
 import GamesPage from './pages/GamesPage';
 import TeamsPage from "./pages/TeamsPage";

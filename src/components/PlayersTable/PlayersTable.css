@@ -1,0 +1,33 @@
+.table-container {
+    width: 90%;
+    margin: 30px;
+}
+
+.table-header-cell {
+    text-align: center;
+}
+
+.even-row {
+    background-color: #303030;
+}
+
+.odd-row {
+    background-color: #424242;
+}
+
+.edit-icon {
+    color: cornflowerblue;
+    margin-right: 35px;
+    transition: color 0.3s;
+}
+
+.delete-icon {
+    color: red;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.delete-icon:hover,
+.edit-icon:hover {
+    color: white;
+}
