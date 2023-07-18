@@ -1,9 +1,10 @@
+// EditFormPlayers.js
 import React, { useEffect, useState } from 'react';
 import { Modal, Box, Typography, IconButton, TextField, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import './AddFormPlayers.css';
+import './EditFormPlayers.css';
 
-function AddFormPlayers({ open, onClose, handleFormSubmit }) {
+function EditFormPlayers({ open, onClose, handleFormSubmit, playerData }) {
     const [selectedRole, setSelectedRole] = useState('');
     const [name, setName] = useState('');
     const [goalsScored, setGoalsScored] = useState('');
@@ -21,6 +22,15 @@ function AddFormPlayers({ open, onClose, handleFormSubmit }) {
             });
     }, []);
 
+    useEffect(() => {
+        if (playerData) {
+            setSelectedRole(playerData.role);
+            setName(playerData.name);
+            setGoalsScored(playerData.goalsScored);
+            setTeam(playerData.team.name);
+        }
+    }, [playerData]);
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -34,8 +44,9 @@ function AddFormPlayers({ open, onClose, handleFormSubmit }) {
             }
 
             const teamData = await teamResponse.json();
-
-            const newPlayer = {
+            console.log(teamData);
+            const editedPlayer = {
+                id: playerData.id,
                 name: name,
                 goalsScored: parseInt(goalsScored),
                 role: selectedRole,
@@ -50,24 +61,25 @@ function AddFormPlayers({ open, onClose, handleFormSubmit }) {
                 },
             };
 
-            const playerResponse = await fetch('http://localhost:8090/players', {
-                method: 'POST',
+            const playerResponse = await fetch(`http://localhost:8090/players/${playerData.id}`, {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newPlayer),
+                body: JSON.stringify(editedPlayer),
             });
 
             if (!playerResponse.ok) {
                 throw new Error('Failed to save the player');
             }
 
-            console.log('Player saved successfully');
             setName('');
             setGoalsScored('');
             setSelectedRole('');
             setTeam('');
-            handleFormSubmit(newPlayer);
+            onClose();
+            console.log('Player saved successfully');
+            handleFormSubmit(editedPlayer);
         } catch (error) {
             console.error('Error:', error);
         }
@@ -88,23 +100,23 @@ function AddFormPlayers({ open, onClose, handleFormSubmit }) {
                     <CloseIcon />
                 </IconButton>
                 <Typography variant="h6" component="h2" gutterBottom>
-                    Add Player
+                    Edit Player
                 </Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
                         sx={{ mt: 2, mb: 3 }}
-                        label="Name"
                         name="name"
                         fullWidth
+                        label="Name"
                         className="form-field"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
                     <TextField
                         sx={{ mb: 3 }}
-                        label="Goals Scored"
                         name="goalsScored"
                         fullWidth
+                        label="Goals Scored"
                         className="form-field"
                         value={goalsScored}
                         onChange={(e) => setGoalsScored(e.target.value)}
@@ -128,8 +140,8 @@ function AddFormPlayers({ open, onClose, handleFormSubmit }) {
                             ))}
                         </Select>
                     </FormControl>
-                    <Button sx={{ mb: 0.5 }} type="submit" variant="contained" fullWidth className="add-button">
-                        Add
+                    <Button sx={{ mb: 0.5 }} type="submit" variant="contained" fullWidth className="edit-button">
+                        Save
                     </Button>
                 </form>
             </Box>
@@ -137,4 +149,4 @@ function AddFormPlayers({ open, onClose, handleFormSubmit }) {
     );
 }
 
-export default AddFormPlayers;
+export default EditFormPlayers;

@@ -1,4 +1,3 @@
-// PlayersTable.js
 import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 import TableSortLabel from '@mui/material/TableSortLabel';
@@ -15,15 +14,7 @@ const PlayersTable = ({ playerData, sortBy, sortOrder, handleSort, handlePlayerD
                         <TableCell sx={{ textAlign: 'center' }} align="center">Name</TableCell>
                         <TableCell sx={{ textAlign: 'center' }} align="center">Goals Scored</TableCell>
                         <TableCell sx={{ textAlign: 'center' }} align="center">Role</TableCell>
-                        <TableCell sx={{ textAlign: 'center' }} align="center">
-                            <TableSortLabel
-                                active={sortBy === 'team.name'}
-                                direction={sortOrder}
-                                onClick={() => handleSort('team.name')}
-                            >
-                                Team
-                            </TableSortLabel>
-                        </TableCell>
+                        <TableCell sx={{ textAlign: 'center' }} align="center">Team</TableCell>
                         <TableCell sx={{ textAlign: 'center' }} align="center">Actions</TableCell>
                     </TableRow>
                 </TableHead>
@@ -44,7 +35,7 @@ const PlayersTable = ({ playerData, sortBy, sortOrder, handleSort, handlePlayerD
                                             color: 'white',
                                         },
                                     }}
-                                    onClick={() => handleEditPlayer(player.id)}
+                                    onClick={() => handleEditPlayer(player)}
                                 />
                                 <DeleteIcon
                                     sx={{

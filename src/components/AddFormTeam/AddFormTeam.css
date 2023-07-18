@@ -1,0 +1,40 @@
+.modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-button {
+    align-self: flex-end;
+    color: gray;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.add-button {
+    background-color: steelblue;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+

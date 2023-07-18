@@ -1,9 +1,7 @@
-// GamesPage.js
 import React, { useEffect, useState } from 'react';
 import { createTheme, IconButton, ThemeProvider } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import GamesTable from '../components/GamesTable/GamesTable.js';
-import AddGameForm from '../components/AddFormGames/AddFormGames.js';
 import AddFormGames from "../components/AddFormGames/AddFormGames.js";
 
 function GamesPage() {

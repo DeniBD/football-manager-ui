@@ -7,6 +7,7 @@ import PlayersPage from './pages/PlayersPage';
 import GamesPage from './pages/GamesPage';
 import TeamsPage from "./pages/TeamsPage";
 import HomePage from "./pages/HomePage.js"
+import StadiumsPage from "./pages/StadiumsPage.js"
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 {/*<Route path="/teams" element={<TeamsPage />} />*/}
                 <Route path="/players" element={<PlayersPage />} />
                 <Route path="/games" element={<GamesPage />} />
+                <Route path="/stadiums" element={<StadiumsPage />} />
             </Routes>
         </div>
     );

@@ -22,14 +22,17 @@ export default function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav nav nav-underline">
-                            <NavLink className="nav-link" to="/teams" activeClassName="active">
-                                Teams
-                            </NavLink>
+                            {/*<NavLink className="nav-link" to="/teams" activeClassName="active">*/}
+                            {/*    Teams*/}
+                            {/*</NavLink>*/}
                             <NavLink className="nav-link" to="/players" activeClassName="active">
                                 Players
                             </NavLink>
                             <NavLink className="nav-link" to="/games" activeClassName="active">
                                 Games
+                            </NavLink>
+                            <NavLink className="nav-link" to="/stadiums" activeClassName="active">
+                                Stadiums
                             </NavLink>
                         </div>
                     </div>
